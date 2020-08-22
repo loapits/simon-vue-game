@@ -2,7 +2,9 @@
   <div id="app">
     <h1>Simple game</h1>
     <div class="game">
-      <Game />
+      <Game 
+        :playSound="playSound"
+      />
       <Score 
         :round="round" 
         :isOver="isOver" 
@@ -12,7 +14,6 @@
         :endGame="endGame"
       />
     </div>
-    <button @click.prevent="playSound('../assets/sounds/1.mp3')">Play audio</button>
   </div>
 </template>
 
@@ -25,10 +26,10 @@ export default {
   components: {Game, Score},
   data: function() {
     return{
-    round: 0,
-    finallCount: 0,
-    isOver: false,
-    diff: ''
+      round: 0,
+      finallCount: 0,
+      isOver: false,
+      diff: ''
     }
   },
   methods: {

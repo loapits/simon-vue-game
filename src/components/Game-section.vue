@@ -1,15 +1,36 @@
 <template>
   <div class='game-section'>
     <div>
-      <button class="red"></button>
-      <button class="blue"></button>
+      <button 
+        @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')" 
+        class="red"
+      ></button>
+      <button
+        @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+        class="blue"
+      ></button>
     </div>
     <div>
-    <button class="yellow"></button>
-    <button class="green"></button>
+    <button 
+      @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+      class="yellow"
+    ></button>
+    <button 
+      @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+      class="green"
+    ></button>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Game',
+  props: {
+    playSound: Function
+  }
+}
+</script>
 
 <style scoped>
   .game-section{
