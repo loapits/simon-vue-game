@@ -2,7 +2,7 @@
   <div class='game-section'>
     <div>
       <button 
-        @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')" 
+        @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/1.mp3')" 
         class="red"
       ></button>
       <button
