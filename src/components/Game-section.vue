@@ -2,21 +2,21 @@
   <div class='game-section'>
     <div>
       <button 
-        @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/1.ogg')" 
+        @click.prevent="playSound('https://faradarata.000webhostapp.com/sounds/1.mp3')" 
         class="red"
       ></button>
       <button
-        @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/2.ogg')"
+        @click.prevent="playSound('https://faradarata.000webhostapp.com/sounds/2.mp3')"
         class="blue"
       ></button>
     </div>
     <div>
     <button 
-      @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/3.ogg')"
+      @click.prevent="playSound('https://faradarata.000webhostapp.com/sounds/3.mp3')"
       class="yellow"
     ></button>
     <button 
-      @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/4.ogg')"
+      @click.prevent="playSound('https://faradarata.000webhostapp.com/sounds/4.mp3')"
       class="green"
     ></button>
     </div>
