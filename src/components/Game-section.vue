@@ -6,17 +6,17 @@
         class="red"
       ></button>
       <button
-        @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+        @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/2.mp3')"
         class="blue"
       ></button>
     </div>
     <div>
     <button 
-      @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+      @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/3.mp3')"
       class="yellow"
     ></button>
     <button 
-      @click.prevent="playSound('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')"
+      @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/4.mp3')"
       class="green"
     ></button>
     </div>
