@@ -2,21 +2,21 @@
   <div class='game-section'>
     <div>
       <button 
-        @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/1.mp3')" 
+        @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/1.ogg')" 
         class="red"
       ></button>
       <button
-        @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/2.mp3')"
+        @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/2.ogg')"
         class="blue"
       ></button>
     </div>
     <div>
     <button 
-      @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/3.mp3')"
+      @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/3.ogg')"
       class="yellow"
     ></button>
     <button 
-      @click.prevent="playSound('https://github.com/loapits/simon-vue-game/tree/master/src/assets/sounds/4.mp3')"
+      @click.prevent="playSound('http://www.kellyking.me/projects/simon/sounds/4.ogg')"
       class="green"
     ></button>
     </div>
