@@ -52,11 +52,6 @@
           >Hard
         </label>
       </fieldset>
-      <button 
-        class='start-game' 
-        @click="endGame">
-        Start
-      </button>
     </div>
   </div>
 </template>

@@ -46,11 +46,11 @@ export default {
       this.diff = data.difficulty.toString()
     },
     playSound (sound) {
-        if(sound) {
-          var audio = new Audio(sound)
-          audio.play()
-        }
+      if(sound) {
+        var audio = new Audio(sound)
+        audio.play()
       }
+    }
   }
 }
 </script>
