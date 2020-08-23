@@ -2,29 +2,28 @@
   <div class='game-section'>
     <div>
       <button 
-        @click="panelClicked($event, 'https://faradarata.000webhostapp.com/sounds/1.mp3')" 
+        @click="panelClicked($event, sound1)" 
         class="red"
         id="1"
       ></button>
       <button
-       @click="panelClicked($event, 'https://faradarata.000webhostapp.com/sounds/2.mp3')"
+       @click="panelClicked($event, sound2)"
         class="blue"
         id="2"
       ></button>
     </div>
     <div>
     <button 
-      @click="panelClicked($event, 'https://faradarata.000webhostapp.com/sounds/3.mp3')"
+      @click="panelClicked($event, sound3)"
       class="yellow"
       id="3"
     ></button>
     <button 
-      @click="panelClicked($event, 'https://faradarata.000webhostapp.com/sounds/4.mp3')"
+      @click="panelClicked($event, sound4)"
       class="green"
       id="4"
     ></button>
     </div>
-    <button @click="startGame">fgdfggd</button>
   </div> 
 </template>
 
@@ -32,17 +31,24 @@
 export default {
   name: 'Game',
   props: {
-    playSound: Function
+    playSound: Function,
+    switchOver: Function,
+    incrementOfRound: Function,
+    endGame: Function,
+    timing: Number
   },
   data: () => ({
-    canClick: false
+    canClick: false,
+    sound1: 'https://faradarata.000webhostapp.com/sounds/1.mp3',
+    sound2: 'https://faradarata.000webhostapp.com/sounds/2.mp3',
+    sound3: 'https://faradarata.000webhostapp.com/sounds/3.mp3',
+    sound4: 'https://faradarata.000webhostapp.com/sounds/4.mp3'
   }),
   mounted() {
-    this.red = this.$el.children[0].children[0]
-    this.blue = this.$el.children[0].children[1]
-    this.yellow = this.$el.children[1].children[0]
-    this.green = this.$el.children[1].children[1]
-    
+    this.red = document.querySelector('.red')
+    this.blue = document.querySelector('.blue')
+    this.yellow = document.querySelector('.yellow')
+    this.green = document.querySelector('.green')
     this.createSequences()
   },
   methods: {
@@ -57,16 +63,16 @@ export default {
     flash(panel) {
       switch (panel.className) {
         case 'red':
-          this.playSound('https://faradarata.000webhostapp.com/sounds/1.mp3')
+          this.playSound(this.sound1)
           break
         case 'blue':
-          this.playSound('https://faradarata.000webhostapp.com/sounds/2.mp3')
+          this.playSound(this.sound2)
           break
         case 'yellow':
-          this.playSound('https://faradarata.000webhostapp.com/sounds/3.mp3')
+          this.playSound(this.sound3)
           break
         case 'green':
-          this.playSound('https://faradarata.000webhostapp.com/sounds/4.mp3')
+          this.playSound(this.sound4)
           break
       }
       return new Promise(resolve => {
@@ -76,7 +82,7 @@ export default {
           setTimeout(() => {
             resolve()
           }, 250)
-        }, 1000)
+        }, 100)
       })
     },
     panelClicked(event, sound) {
@@ -84,26 +90,26 @@ export default {
       this.playSound(sound)
       
       if (!this.canClick) return
-      console.log(this.canClick);
-      const expactedPanel = this.sequenceToGuess.shift()
-      console.log(expactedPanel);
+      let expactedPanel = this.sequenceToGuess.shift()
 
-      if (this.expactedPanel === this.target) {
+      if (expactedPanel.className === target.className) {
         if (this.sequenceToGuess.length === 0) {
           this.sequence.push(this.getRandomPanel())
           this.sequenceToGuess = [...this.sequence]
           setTimeout(() => {
             this.startGame()
-          }, 1000)
+            this.switchOver()
+            this.incrementOfRound()
+          }, this.timing)
         }
       } else {
+        this.endGame()
         this.sequence = [this.getRandomPanel()]
         this.sequenceToGuess = [...this.sequence]
-
-        alert('game over')
       }
     },
     async startGame() {
+      this.switchOver()
       this.canClick = false
       for (const panel of this.sequence) {
         await this.flash(panel)

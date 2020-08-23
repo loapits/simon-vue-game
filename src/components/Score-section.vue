@@ -29,7 +29,7 @@
             type="radio" 
             name="difficulty" 
             class="difficulty-list__item-child" 
-            v-bind:value="{diff: 'easy'}" 
+            v-bind:value="{diff: 'easy', timing: 1500}" 
             v-model="difficulty"
           >Easy
         </label>
@@ -38,7 +38,7 @@
             type="radio" 
             name="difficulty" 
             class="difficulty-list__item-child"
-            v-bind:value="{diff: 'middle'}" 
+            v-bind:value="{diff: 'middle', timing: 1000}" 
             v-model="difficulty"
           >Middle
         </label>
@@ -47,7 +47,7 @@
             type="radio" 
             name="difficulty" 
             class="difficulty-list__item-child"
-            v-bind:value="{diff: 'hard'}" 
+            v-bind:value="{diff: 'hard', timing: 400}" 
             v-model="difficulty"
           >Hard
         </label>
@@ -61,20 +61,23 @@ export default {
   name: 'Score',
   data: () => ({
     difficulty: {
-      diff: 'easy'
+      diff: 'easy',
+      timing: 1500
     }
   }),
   props: {
     round: Number,
     finallCount: Number,
-    isOver: Boolean,
     startGame: Function,
+    isOver: Boolean,
+    switchOver: Function,
     endGame: Function
   },
   methods: {
     sendGameDiff() {
       this.$emit('send-game-diff', {
-        difficulty: this.difficulty.diff
+        diff: this.difficulty.diff,
+        timing: this.difficulty.timing
       })
     }
   }

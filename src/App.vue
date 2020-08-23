@@ -4,13 +4,19 @@
     <div class="game">
       <Game 
         :playSound="playSound"
+        :switchOver="switchOver"
+        :incrementOfRound="incrementOfRound"
+        :endGame="endGame"
+        :timing="timing"
+        ref="Game"
       />
       <Score 
+        :startGame="startGame"
         :round="round" 
         :isOver="isOver" 
         :finallCount="finallCount" 
         @send-game-diff="takeGameDiff"
-        :startGame="startGame"
+        :switchOver="switchOver"
         :endGame="endGame"
       />
     </div>
@@ -29,12 +35,15 @@ export default {
       round: 0,
       finallCount: 0,
       isOver: false,
-      diff: ''
+      diff: 'easy',
+      timing: 1500
     }
   },
   methods: {
-    startGame() {
+    switchOver() {
       this.isOver = false
+    },
+    incrementOfRound() {
       this.round += 1
     },
     endGame(data) {
@@ -43,13 +52,17 @@ export default {
       this.round = 0
     },
     takeGameDiff(data) {
-      this.diff = data.difficulty.toString()
+      this.diff = data.diff.toString()
+      this.timing = data.timing
     },
     playSound (sound) {
       if(sound) {
         var audio = new Audio(sound)
         audio.play()
       }
+    },
+    startGame() {
+      this.$refs.Game.startGame()
     }
   }
 }
