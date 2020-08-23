@@ -81,8 +81,8 @@ export default {
           panel.className = panel.className.replace(' active', '')
           setTimeout(() => {
             resolve()
-          }, 250)
-        }, 100)
+          }, 300)
+        }, 300)
       })
     },
     panelClicked(event, sound) {
