@@ -54,7 +54,6 @@ export default {
     },
     startGame() {
       this.round = 0
-      console.log(this.$refs.Game)
       this.$refs.Game.canClick = false
       this.finallCount = 0
       this.$refs.Game.createSequences()

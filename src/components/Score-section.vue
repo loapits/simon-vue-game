@@ -212,6 +212,17 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
+    }
     .prev-game{
       display: grid;
       justify-items: center;
@@ -296,6 +307,17 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
+    }
     .prev-game{
       display: grid;
       justify-items: center;
@@ -379,6 +401,17 @@ export default {
       border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
     }
     .prev-game{
       display: grid;
@@ -465,6 +498,17 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
+    }
     .prev-game{
       display: grid;
       justify-items: center;
@@ -550,6 +594,17 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
+    }
     .prev-game{
       display: grid;
       justify-items: center;
@@ -634,6 +689,17 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
+    }
     .prev-game{
       display: grid;
       justify-items: center;
@@ -717,6 +783,17 @@ export default {
       border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+    .start-game:active{
+      background: slategrey;
+    }
+    .start-game_disabled{
+      background: #ccc;
+      color: #777;
+    }
+    .start-game_disabled:active{
+      background: #ccc;
+      color: #777;
     }
     .prev-game{
       display: grid;

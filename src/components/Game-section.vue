@@ -137,6 +137,10 @@ export default {
     justify-items: flex-end;
     margin-top: 40px;
   }
+  .game-section div{
+    margin: 0;
+    height: 150px;
+  }
   button{
     width: 150px;
     height: 150px;
@@ -145,7 +149,8 @@ export default {
     opacity: 0.7;
     border: none;
     padding: 0;
-    margin: -4px 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   button:active{
     outline: none;
@@ -175,7 +180,7 @@ export default {
     position: sticky;
   }
   .green {
-  	background: #BEDE15;
+  	background: chartreuse;
     border-radius: 0 0 300px 0;
   }
   .green:hover{
@@ -194,36 +199,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 170px;
+    }
     button{
       width: 170px;
       height: 170px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -237,36 +224,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 160px;
+    }
     button{
       width: 160px;
       height: 160px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -280,36 +249,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 140px;
+    }
     button{
       width: 140px;
       height: 140px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -323,36 +274,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 145px;
+    }
     button{
       width: 145px;
       height: 145px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -366,36 +299,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 130px;
+    }
     button{
       width: 130px;
       height: 130px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -409,37 +324,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 130px;
+    }
     button{
       width: 130px;
       height: 130px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      width: 130px;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
@@ -453,36 +349,18 @@ export default {
       justify-items: center;
       margin-top: 5px;
     }
+    .game-section div{
+      margin: 0;
+      height: 130px;
+    }
     button{
       width: 130px;
       height: 130px;
       outline: none;
       cursor: pointer;
-      opacity: 0.7;
       border: none;
       padding: 0;
-      margin: -4px 0;
-    }
-    button:active{
-      outline: none;
-      cursor: pointer;
-      opacity: 1;
-    }
-    .red {
-    	background: #FF5643;
-      border-radius: 300px 0 0 0;
-    }
-    .blue {
-    	background: dodgerblue;
-      border-radius: 0 300px 0 0;
-    }
-    .yellow {
-    	background: #FEEF33;
-      border-radius: 0 0 0 300px;
-    }
-    .green {
-    	background: #BEDE15;
-      border-radius: 0 0 300px 0;
+      margin: 0;
     }
     .red:hover, .blue:hover, .yellow:hover, .green:hover{
       box-shadow: none;
