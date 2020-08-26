@@ -32,11 +32,10 @@ export default {
   name: 'Game',
   props: {
     playSound: Function,
-    switchOver: Function,
+    setGameOverFalse: Function,
     incrementOfRound: Function,
     finallCount: Number,
-    setStartedTrue: Function,
-    setStartedFalse: Function,
+    setStarted: Function,
     endGame: Function,
     timing: Number
   },
@@ -102,7 +101,7 @@ export default {
             this.sequence.push(this.getRandomPanel())
             this.sequenceToGuess = [...this.sequence]
             setTimeout(() => {
-              this.switchOver()
+              this.setGameOverFalse()
               this.startGame()
             }, this.timing >900 ?this.timing : this.timing*2)
           }
@@ -114,16 +113,16 @@ export default {
       }
     },
     async startGame() {
-      this.setStartedTrue()
+      this.setStarted()
       this.incrementOfRound()
-      this.switchOver()
+      this.setGameOverFalse()
       this.canClick = false
       for (const panel of this.sequence) {
         await this.flash(panel)
       }
 
       this.canClick = true
-      this.setStartedFalse()
+      this.setStarted()
     }
   }
 }

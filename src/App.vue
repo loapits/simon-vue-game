@@ -5,22 +5,21 @@
     <div class="game">
       <Game 
         :playSound="playSound"
-        :switchOver="switchOver"
+        :setGameOverFalse="setGameOverFalse"
         :incrementOfRound="incrementOfRound"
         :endGame="endGame"
         :finallCount="finallCount" 
-        :setStartedTrue="setStartedTrue"
-        :setStartedFalse="setStartedFalse"
+        :setStarted="setStarted"
         :timing="timing"
         ref="Game"
       />
       <Score 
         :startGame="startGame"
         :round="round" 
-        :isOver="isOver" 
+        :isGameOver="isGameOver" 
         :finallCount="finallCount" 
         @send-game-diff="takeGameDiff"
-        :switchOver="switchOver"
+        :setGameOverFalse="setGameOverFalse"
         :endGame="endGame"
         :isStarted="isStarted"
       />
@@ -39,15 +38,15 @@ export default {
     return{
       round: 0,
       finallCount: 0,
-      isOver: false,
+      isGameOver: false,
       isStarted: false,
       diff: 'easy',
       timing: 1500
     }
   },
   methods: {
-    switchOver() {
-      this.isOver = false
+    setGameOverFalse() {
+      this.isGameOver = false
     },
     incrementOfRound() {
       this.round += 1
@@ -59,8 +58,8 @@ export default {
       this.$refs.Game.createSequences()
       this.$refs.Game.startGame()
     },
-    endGame(data) {
-      this.isOver = true
+    endGame() {
+      this.isGameOver = true
       this.round > 0 ? this.finallCount = this.round - 1 : this.finallCount = this.round
       this.round = 0
     },
@@ -74,11 +73,8 @@ export default {
         audio.play()
       }
     },
-    setStartedTrue() {
-      this.isStarted = true
-    },
-    setStartedFalse() {
-      this.isStarted = false
+    setStarted() {
+      this.isStarted = !this.isStarted
     }
   }
 }

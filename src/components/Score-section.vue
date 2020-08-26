@@ -37,9 +37,9 @@
             type="radio" 
             name="difficulty" 
             class="difficulty-list__item-child"
-            v-bind:value="{diff: 'middle', timing: 1000}" 
+            v-bind:value="{diff: 'normal', timing: 1000}" 
             v-model="difficulty"
-          >Middle
+          >Normal
         </label>
         <label class="difficulty-list__item">
           <input 
@@ -52,7 +52,7 @@
         </label>
       </fieldset>
     </div>
-    <div class="prev-game" v-if="isOver">
+    <div class="prev-game" v-if="isGameOver">
       <h2 class="prev-game__header">
         Game Over 
       </h2>
@@ -76,9 +76,9 @@ export default {
     round: Number,
     finallCount: Number,
     startGame: Function,
-    isOver: Boolean,
+    isGameOver: Boolean,
     isStarted: Boolean,
-    switchOver: Function,
+    setGameOverFalse: Function,
     endGame: Function
   },
   methods: {
