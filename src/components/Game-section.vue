@@ -34,6 +34,9 @@ export default {
     playSound: Function,
     switchOver: Function,
     incrementOfRound: Function,
+    finallCount: Number,
+    setStartedTrue: Function,
+    setStartedFalse: Function,
     endGame: Function,
     timing: Number
   },
@@ -81,40 +84,46 @@ export default {
           panel.className = panel.className.replace(' active', '')
           setTimeout(() => {
             resolve()
-          }, 300)
+          }, this.timing)
         }, 300)
       })
     },
     panelClicked(event, sound) {
+      if (!this.canClick) return false
       const target = event.currentTarget
       this.playSound(sound)
       
       if (!this.canClick) return
       let expactedPanel = this.sequenceToGuess.shift()
 
-      if (expactedPanel.className === target.className) {
-        if (this.sequenceToGuess.length === 0) {
-          this.sequence.push(this.getRandomPanel())
+      if (!this.finallCount) {
+        if (expactedPanel.className === target.className) {
+          if (this.sequenceToGuess.length === 0) {
+            this.sequence.push(this.getRandomPanel())
+            this.sequenceToGuess = [...this.sequence]
+            setTimeout(() => {
+              this.switchOver()
+              this.startGame()
+            }, this.timing >900 ?this.timing : this.timing*2)
+          }
+        } else {
+          this.endGame()
+          this.sequence = [this.getRandomPanel()]
           this.sequenceToGuess = [...this.sequence]
-          setTimeout(() => {
-            this.startGame()
-            this.switchOver()
-            this.incrementOfRound()
-          }, this.timing)
         }
-      } else {
-        this.endGame()
-        this.sequence = [this.getRandomPanel()]
-        this.sequenceToGuess = [...this.sequence]
       }
     },
     async startGame() {
+      this.setStartedTrue()
+      this.incrementOfRound()
       this.switchOver()
       this.canClick = false
       for (const panel of this.sequence) {
         await this.flash(panel)
       }
+
       this.canClick = true
+      this.setStartedFalse()
     }
   }
 }
@@ -129,6 +138,7 @@ export default {
     margin-top: 40px;
   }
   button{
+    width: 150px;
     height: 150px;
     outline: none;
     cursor: pointer;
@@ -138,50 +148,345 @@ export default {
     margin: -4px 0;
   }
   button:active{
-    height: 150px;
     outline: none;
     cursor: pointer;
     opacity: 1;
   }
   .red {
   	background: #FF5643;
-    width: 150px;
     border-radius: 300px 0 0 0;
   }
   .red:hover{
-    border-left: 3px solid black;
-    border-top: 3px solid black;
+    box-shadow: -2px -2px 4px black;
   }
   .blue {
   	background: dodgerblue;
-    width: 150px;
     border-radius: 0 300px 0 0;
   }
   .blue:hover{
-    border-top: 3px solid black;
-    border-right: 3px solid black;
+    box-shadow: 2px -2px 4px black;
   }
   .yellow {
   	background: #FEEF33;
-    width: 150px;
     border-radius: 0 0 0 300px;
   }
   .yellow:hover{
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
+    box-shadow: -2px 2px 4px black;
+    position: sticky;
   }
   .green {
   	background: #BEDE15;
-    width: 150px;
     border-radius: 0 0 300px 0;
   }
   .green:hover{
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
+    box-shadow: 2px 2px 4px black;
   }
   .active{
     outline: none;
     opacity: 1;
+  }
+  /* Adaptive mobile */
+  @media only screen and (min-width: 720px) and (max-width: 767px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 170px;
+      height: 170px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media only screen and (min-width: 580px) and (max-width: 719px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 160px;
+      height: 160px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media only screen and (min-width: 480px) and (max-width: 579px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 140px;
+      height: 140px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media only screen and (min-width: 375px) and (max-width: 479px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 145px;
+      height: 145px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media only screen and (min-width: 360px) and (max-width: 374px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 130px;
+      height: 130px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 359px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 130px;
+      height: 130px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      width: 130px;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
+  }
+  @media screen and (min-width: 0px) and (max-width: 319px) {
+    .game-section{
+      display: grid;
+      float: unset;
+      width: 100%;
+      justify-items: center;
+      margin-top: 5px;
+    }
+    button{
+      width: 130px;
+      height: 130px;
+      outline: none;
+      cursor: pointer;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      margin: -4px 0;
+    }
+    button:active{
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .red {
+    	background: #FF5643;
+      border-radius: 300px 0 0 0;
+    }
+    .blue {
+    	background: dodgerblue;
+      border-radius: 0 300px 0 0;
+    }
+    .yellow {
+    	background: #FEEF33;
+      border-radius: 0 0 0 300px;
+    }
+    .green {
+    	background: #BEDE15;
+      border-radius: 0 0 300px 0;
+    }
+    .red:hover, .blue:hover, .yellow:hover, .green:hover{
+      box-shadow: none;
+    }
   }
 </style>
 
