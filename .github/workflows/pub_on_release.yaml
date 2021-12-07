@@ -15,7 +15,7 @@ jobs:
       - name: Login to docker.io
         run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PWD }}
       - uses: actions/checkout@master
-      - uses: Build image
+      - name: Build image
         run: docker build -t ${{ secrets.DOCKER_NAME }} -f Dockerfile .
       - name: Push image to docker.io
         run: docker push ${{ secrets.DOCKER_NAME }} 
