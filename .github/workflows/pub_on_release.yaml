@@ -16,7 +16,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PWD }}
       - uses: actions/checkout@master
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_NAME }}/simon:latest -f Dockerfile .
+        run: docker build --tag ${{ secrets.DOCKER_NAME }}/simon:latest -f Dockerfile .
       - name: Push image to docker.io
         run: docker push ${{ secrets.DOCKER_NAME }}/simon:latest
 
